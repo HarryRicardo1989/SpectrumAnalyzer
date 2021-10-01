@@ -1,0 +1,11 @@
+{
+  "name": "spectrumanalyzer",
+  "version": "1.0.0",
+  "description": "Analisador de espectro RF",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon main.js"
+  },
+  "author": "Ricardo Paschoali",
+  "license": "ISC"
+}
