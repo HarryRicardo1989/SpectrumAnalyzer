@@ -1,0 +1,214 @@
+
+body{
+    background-color: rgba(0, 0, 0, 0.9);
+    font-size: 16px;
+    line-height: 1.5;
+    padding-bottom: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 2.5rem;
+}
+
+
+#logotipo{
+    height:9vh;
+    position:fixed;
+    top:3px;
+    left:0;
+    display:inline-block;
+    padding-right:4vh;
+    padding-left:6vh
+}
+
+.divtitulo{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:10vh;
+    background-color:rgba(0,0,0,.7);
+    text-align:center
+}
+.titulo{
+    display:inline-block;
+    height:5vh;
+    line-height:5vh;
+    color: darkgrey;
+}
+.titulo-portatil{
+    display: none;
+}
+.titulo h1{
+    font-size:3vh;
+    text-align:center
+
+}
+.clock{
+    color:rgba(160,210,160,.74);
+    font-family: 'Courier New', Courier, monospace ;
+    height:3vh;
+    line-height:2vh;
+    font-size:5vh;
+    padding:.3em
+}
+.first{
+    margin-top: 2.2vh;
+}
+main .autoajust{
+    text-align: center;
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+}
+
+.atual{
+    padding-top: 3vh;
+}
+.BotaoSelet{
+    display:inline-block;
+    padding-bottom: 10px;
+
+}
+.horacoleta{
+    font-size:3vh;
+    padding-right: 1vh;
+    padding-left: 2vh;
+    color: darkgrey;
+    text-align: center;
+    display: block;
+}
+.Temp {
+    font-size:2.5vh;
+    padding-right: 1vh;
+    padding-left: 2vh;
+    color: darkgrey;
+    display: block;
+}
+.Umid {
+    font-size:2.5vh;
+    padding-right: 1vh;
+    padding-left: 2vh;
+    color: darkgrey;
+    display: block;
+}
+.Pressao {
+    font-size:2.5vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    color: darkgrey;
+    display: block;
+}
+.Pressao1 {
+    font-size:2.5vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    color: darkgrey;
+    display: block;
+}
+.Dew_point{
+    font-size:2.5vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    color: darkgrey;
+    display: block;
+}
+.Wind_speed{
+    font-size:2.5vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    color: darkgrey;
+    display: block;
+}
+.airQuality{
+    font-size:2.5vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    color: darkgrey;
+    display: block;
+}
+.Probabilidade{
+    font-size:2.5vh;
+    padding-top: 10px;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    color: darkgrey;
+}
+.botoes{
+    text-align: center;
+    font-size: 15px;
+    color: #5e8086;
+    padding-bottom: 10px;
+    padding-left: 2vh;
+    padding-right: 2vh;
+}
+.bloco{
+    vertical-align:top;
+    display:inline-block;
+    box-sizing:border-box;
+    box-sizing:content-box;
+    border:grey solid 2px;
+    background-color:rgba(0,0,0,.75);
+    border-radius:10px;
+    margin:0.5%;
+    padding: 2vh;
+    text-align: left;
+}
+
+.Verde{
+    color: green;
+}
+.Azul{
+    color: blue;
+}
+.Aqua{
+    color: aqua;
+}
+div .graf {
+    padding-left: 10px;
+    display: block;
+    /*display: inline-block;*/
+    height: 400px; 
+    width: 30vmin;
+    /*width: 47vmax;*/
+    width: 97.5%;
+}
+
+
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:4vh;
+    background-color:rgba(0,0,0,.7)
+}
+.copyright{
+    text-align:center;
+    vertical-align:top;
+    color:wheat;
+    font-size:.9em;
+    margin: 6px
+}
+
+@media screen and (max-width: 55em) {
+
+    #logotipo{
+        height:5vh;
+    }
+    .titulo-portatil{
+        display: inline;
+    }
+
+    .titulo-principal{
+        display: none;
+    }
+
+  }
+
+  @media screen and (max-width: 65em) {
+    #logotipo{
+        height:5vh;
+    }
+  }
+
+#botaoMes{
+    visibility: hidden;
+}
+#botaoAno{
+    visibility: hidden;
+}

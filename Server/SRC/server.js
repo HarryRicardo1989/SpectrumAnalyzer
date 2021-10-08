@@ -9,8 +9,7 @@ const router = express.Router();
 
 
 router.get('/', function (req, res) {
-    res.sendFile(path.join('../HTML/index.html'));
-    //__dirname : It will resolve to your project folder.
+    res.sendFile(path.join(__dirname +'/Static/index.html'));
 });
 router.get('/parametrers/:freqinit/:freqend/:step/:gain',async function (req, res) {
     let ms = new makeScan();
@@ -20,7 +19,7 @@ router.get('/parametrers/:freqinit/:freqend/:step/:gain',async function (req, re
 });
 
 
-
+app.use(express.static(`${__dirname}/Static`));
 app.use('/', router);
 app.listen(80);
 
