@@ -3,29 +3,23 @@
 class ManipulaDados{
 
     montagemDados(scanned) {
-        var dados = []
+        var Freq = []
+        var db = []
         scanned.forEach(coletaStep => {
             let N = 0
             coletaStep.slice(4,).forEach(element => {
                 let hz_low = coletaStep[0]
                 let hz_step = coletaStep[2]
-                if (element == "nan") {
-                    element = -90.000
-                    print(element)
-                }
                 let frequencia = ((hz_low + N * hz_step) / 1000000).toFixed(3)
                 N++
 
-                //console.log(frequencia, element)
-                //dados.push({frequencia:element,})
-                dados[`${frequencia}`]= element
-                //dados.push(JSON.parse(frequencia,element))
+                Freq.push(frequencia)
+                db.push(element)
             });
         });
         
-        return dados
+        return `"freq":[${Freq}], "db":[${db}] `
 
-        //console.log(Object.keys(dados))
     }
 }
 

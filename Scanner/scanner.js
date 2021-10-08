@@ -1,3 +1,4 @@
+const fs = require('fs');
 const { execSync } = require("child_process");
 
 class Scanner {
@@ -20,14 +21,12 @@ class Scanner {
 
     };
     readFileScan() {
-        
-        let jsonData = require('/opt/SpectrumAnalyzer/Scanner/scan.json');
-        return jsonData;
+        let jsonData = fs.readFileSync('/opt/SpectrumAnalyzer/Scanner/scan.json');
+        return JSON.parse(jsonData);
     }
     writeFileScan(data) {
-
-        let fs = require('fs');
-        fs.writeFile('/opt/SpectrumAnalyzer/scanned.json', data, function (err) {
+        this.data = data
+        fs.writeFile('/opt/SpectrumAnalyzer/Scanner/scanned.json', `{"Scan":\{${this.data}\}}`, function (err) {
             if (err) return console.log(err);
             console.log('data is saved on /opt/SpectrumAnalyzer/scanned.json')
         })
@@ -35,8 +34,6 @@ class Scanner {
     }
 
 }
-
-
 
 
 module.exports = Scanner;
