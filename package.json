@@ -7,5 +7,8 @@
     "start": "nodemon main.js"
   },
   "author": "Ricardo Paschoali",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
