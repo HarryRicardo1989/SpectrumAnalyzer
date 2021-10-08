@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/', function (req, res) {
     res.sendFile(path.join(__dirname +'/Static/index.html'));
 });
-router.get('/parametrers/:freqinit/:freqend/:step/:gain',async function (req, res) {
+router.get('/parameters/:freqinit/:freqend/:step/:gain',async function (req, res) {
     let ms = new makeScan();
     let data = ms.InitScan(req.params.freqinit, req.params.freqend, req.params.step, req.params.gain)
     //console.log(data)
