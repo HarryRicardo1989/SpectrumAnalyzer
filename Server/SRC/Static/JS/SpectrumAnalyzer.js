@@ -1,4 +1,4 @@
-var urlApi = `${document.location.origin}/`//${document.location.pathname}`
+var urlApi = `${document.location.origin}/${document.location.pathname}`//${document.location.pathname}`
 
 let freq_inicial = 88;
 let freq_final = 108;
@@ -112,12 +112,6 @@ async function init(dataScan) {
     })
 };
 
-
-freqinit = function (freq) {
-    freq_inicial = freq;
-    document.body.style.cursor = "wait"
-
-}
 changeparametros = function () {
     let freqinit = document.getElementById("freqinit").value;
     let freqend = document.getElementById("freqend").value;
