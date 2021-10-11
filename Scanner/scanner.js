@@ -15,7 +15,7 @@ class Scanner {
         console.log(this.freq_end);
         console.log(this.freq_step);
         console.log(this.freq_gain);
-        execSync(`echo {\\\"scan\\\":[\`rtl_power -f ${this.freq_init}e6:${this.freq_end}e6:${this.freq_step}e3 -g ${this.freq_gain} -i 1 -1 -d 0 | awk '{print"["substr($0,index($0,$3))"],"}' | xargs | sed 's/.$//' | sed 's/nan/-200/g' \`]} > /opt/SpectrumAnalyzer/Scanner/scan.json`);
+        execSync(`echo {\\\"scan\\\":[\`rtl_power -f ${this.freq_init}e6:${this.freq_end}e6:${this.freq_step}e3 -g ${this.freq_gain} -i 1 -1 -d 0 | awk '{print"["substr($0,index($0,$3))"],"}' | xargs | sed 's/.$//' | sed 's/nan/0/g' \`]} > /opt/SpectrumAnalyzer/Scanner/scan.json`);
         execSync(`sed  -i 's/ /,/g' /opt/SpectrumAnalyzer/Scanner/scan.json ; sed  -i 's/,,-/,-/g' /opt/SpectrumAnalyzer/Scanner/scan.json ; sed  -i 's/,,/,/g' /opt/SpectrumAnalyzer/Scanner/scan.json`);
         return ;
 
@@ -26,7 +26,7 @@ class Scanner {
     }
     writeFileScan(data) {
         this.data = data
-        fs.writeFile('/opt/SpectrumAnalyzer/Scanner/scanned.json', `{"Scan":\{${this.data}\}}`, function (err) {
+        fs.writeFile('/opt/SpectrumAnalyzer/Scanner/scanned.json', `${this.data}`, function (err) {
             if (err) return console.log(err);
             console.log('data is saved on /opt/SpectrumAnalyzer/scanned.json')
         })

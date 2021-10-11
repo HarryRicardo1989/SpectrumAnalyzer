@@ -1,73 +1,48 @@
 <!DOCTYPE HTML>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./CSS/reset.css">
-        <link rel="stylesheet" href="./CSS/style.css">
-        <link rel="icon" href="./img/favicon.svg" type="image/x-icon">
-        <title>SpectrumAnalyzer</title>
-        <script src="./JS/jquery.js"></script>
-        <script src="./JS/SpectrumAnalyzer.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="icon" href="./img/favicon.svg" type="image/x-icon">
+    <title>SpectrumAnalyzer</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/annotations.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <script src="./JS/jquery.js"></script>
+    <script src="./JS/SpectrumAnalyzer.js"></script>
 
     </script>
 </head>
 
-<body onload="PCD(),startTime()">
+<body>
     <header class="divtitulo">
         <img class="logo" id="logotipo" src="./img/CSS_logo.svg">
         <div class="titulo">
             <h1 class="titulo-principal">Spectrum Analyzer</h1>
-            <h2 class="clock" id="clock"></h2>
             <h1 class="titulo-portatil">S.A.</h1>
         </div>
     </header>
-    <main>
+    <main class="main">
         <div class="autoajust">
-            <div class="atual">
                 <hr class="first">
-                <div class="Selet" id="Selet">
-                    <div class="BotaoSelet">
-                        <label for="TempoDeExibicao" class="botoes">Selecione o Tempo:</label>
-                        <select name="TempoDeExibicao" onchange="tamanhoGrafico(this.value)">
-                            <option class="intraDay intraHour" value=0.25>15 Min</option>
-                            <option class="intraDay intraHour" value=0.5>30 Min</option>
-                            <option class="intraDay intraHour" value=1>1 Hora</option>
-                            <option class="intraDay" value=2>2 Horas</option>
-                            <option class="intraDay" value=3>3 Horas</option>
-                            <option class="intraDay" value=6>6 Horas</option>
-                            <option class="intraDay" value=12>12 Horas</option>
-                            <option value=24 selected>24 Horas</option>
-                            <option value=48>48 Horas</option>
-                            <option value=120>5 Dias</option>
-                            <option value=168>7 Dias</option>
-                            <option value=360>15 Dias</option>
-                            <option class="DiaSelect" value=720>1 Mes</option>
-                            <option class="DiaSelect" value=1440>2 Meses</option>
-                            <option class="DiaSelect" value=4320>6 Meses</option>
-                            <option class="DiaSelect HorasMedia" value=8760>1 Ano</option>
-                        </select>
+                <form class="ajustes">
+                        <h2 class="parametros"> Freq init </h2> <input type="number" step="1" min="10" max="1700" value="88" id="freqinit" class="textbox" required> <span id="freqinitret">NA</span>
+                        <h2 class="parametros"> Freq end </h2> <input type="number" step="1" min="10" max="1700" value="108" id="freqend" class="textbox" required> <span id="freqendret">NA</span>
+                        <h2 class="parametros"> Freq step </h2> <input type="number" step="1" min="3" max="10000" value="10" id="freqstep" class="textbox" required> <span id="freqstepret">NA</span>
+                        <h2 class="parametros"> Gain </h2> <input type="number" step="1" min="0" max="80" value="20" id="gain" class="textbox" required> <span id="gainret">NA</span>
+
+                            <div class="BotaoSelect">
+                                <button type="button" class="button" onclick="changeparametros()">CHANGE</button>
+                            </div>
                     </div>
-                    <div class="BotaoSelet">
-                        <label for="TempoDeExibicao" class="botoes">Selecione o Tipo:</label>
-                        <select name="TempoDeExibicao" onchange="periodoSelect(this.value)">
-                            <option value="horas" selected>Full-Data</option>
-                            <option value="horasmedia">Média Hora</option>
-                            <option value="dias">Média Dia</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+                </form>
             <hr>
-            <h2 class="botoes">Graficos:</h2>
-            <div class="autoajust">
-
-                <div class="block">
-                    <div class="graf" id="SpectrumAnalyzer"></div>
-
-                </div>
-            </div>
+                    <div id="container"></div>
         </div>
         <hr>
     </main>

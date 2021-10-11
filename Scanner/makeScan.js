@@ -9,7 +9,7 @@ class MAKESCAN {
         let readscan = rf.readFileScan()["scan"];
         let adaptdata = dadosFreq_dB.montagemDados(readscan);
         rf.writeFileScan(adaptdata);
-        return `{ "Scan": \{${adaptdata} \ } }`
+        return `${adaptdata}`
     }
 }
 
