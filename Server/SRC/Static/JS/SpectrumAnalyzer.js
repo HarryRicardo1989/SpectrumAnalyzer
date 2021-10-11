@@ -1,26 +1,14 @@
 var urlApi = `${document.location.origin}/${document.location.pathname}`//${document.location.pathname}`
-
+var dataScan;
 let freq_inicial = 88;
 let freq_final = 108;
 let freq_step = 10;
 let freq_gain = 20;
 
-/* const init = async function (freq_inicial, freq_final, freq_step, freq_gain) {
-    return [
-        x,
-        y,
-    ];
-} */
-
-// Start function
-
-
 async function init(dataScan) {
-    //async function init(freq_inicial, freq_final, freq_step, freq_gain) {
-    //await Highcharts.getJSON(`${urlApi}parameters/${freq_inicial}/${freq_final}/${freq_step}/${freq_gain}`, function (dataScan) {
-    // Create the chart
     Highcharts.chart('container', {
         chart: {
+            
             type: 'area',
             zoomType: 'x',
             panning: true,
@@ -31,7 +19,7 @@ async function init(dataScan) {
         },
 
         caption: {
-            text: 'teste'
+            text: 'Spectrum Analyzer Criar Space Systems'
         },
 
         title: {
@@ -39,7 +27,7 @@ async function init(dataScan) {
         },
 
         accessibility: {
-            description: 'teste',
+            description: 'Spectrum Analyzer Criar Space Systems',
             landmarkVerbosity: 'one'
         },
 
@@ -88,7 +76,7 @@ async function init(dataScan) {
         },
 
         tooltip: {
-            headerFormat: 'Frequency: {point.x:.1f} MHz<br>',
+            headerFormat: 'Frequency: {point.x:.2f} MHz<br>',
             pointFormat: '{point.y} dB',
             shared: true
         },
@@ -139,7 +127,7 @@ async function updatejson() {
         init(dataScan);
     });
     setTimeout(updatejson, 1000)
-
+    
 };
 
 updatejson();
