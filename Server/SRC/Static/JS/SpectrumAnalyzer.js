@@ -1,5 +1,4 @@
 var urlApi = `${document.location.origin}/${document.location.pathname}`//${document.location.pathname}`
-var dataScan;
 let freq_inicial = 88;
 let freq_final = 108;
 let freq_step = 10;
