@@ -4,15 +4,30 @@ let freq_inicial = 88;
 let freq_final = 108;
 let freq_step = 10;
 let freq_gain = 20;
+var dataScan = [];
 
-/* const init = async function (freq_inicial, freq_final, freq_step, freq_gain) {
-    return [
-        x,
-        y,
-    ];
-} */
+// Create the chart
+// Create the chart
+Highcharts.chart('container', {
 
-// Start function
+
+    rangeSelector: {
+        selected: 1
+    },
+
+    title: {
+        text: 'AAPL Stock Price'
+    },
+
+    series: [{
+        name: 'AAPL',
+        data: dataScan,
+        tooltip: {
+            valueDecimals: 2
+        }
+    }]
+});
+
 
 
 
@@ -38,9 +53,10 @@ changeparametros = function () {
 
 async function updatejson() {
 
-  
+
     await $.getJSON(`${urlApi}parameters/${freq_inicial}/${freq_final}/${freq_step}/${freq_gain}`, function (dataScan) {
         init(dataScan);
+        globalThis.dataScan = dataScan;
     });
     setTimeout(updatejson, 1000)
 
