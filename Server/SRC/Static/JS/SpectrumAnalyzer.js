@@ -1,8 +1,8 @@
 var urlApi = `${document.location.origin}/${document.location.pathname}`//${document.location.pathname}`
-let freq_inicial = 88;
-let freq_final = 108;
-let freq_step = 10;
-let freq_gain = 20;
+let freq_inicial = 136;
+let freq_final = 173;
+let freq_step = 50;
+let freq_gain = 30;
 
 async function init(dataScan) {
     Highcharts.chart('container', {
